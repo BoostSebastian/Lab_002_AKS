@@ -1,8 +1,4 @@
----
-lab:
-    title: 'LAB_002_AKS - Implement Azure Kubernetes Service'
----
-<br />
+
 <div align="center">
   <a href="">
     <img src="images/logopng2.png" alt="Logo" height="80">
@@ -45,17 +41,19 @@ In this lab, you will:
 
 <br />
 
-## <span style="color:#8B2CDB">Objectives</span>
+## <span style="color:#8B2CDB">Architecture diagram</span>
 
-## Architecture diagram
+<img src="./images/lab002aks.png" alt="Logo" height="500">
 
-![image](/images/lab002aks.png)
 
-## Instructions
+<br />
+<br />
 
-### Exercise 1
+## <span style="color:#8B2CDB">Instructions</span>
 
-#### Task 1: Register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
+### <span style="color:#5bb776">Exercise 1</span>
+
+#### <span style="color:#5bb776">Task 1:</span> Register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
 
 In this task, you will register resource providers necessary to deploy an Azure Kubernetes Services cluster.
 
@@ -77,7 +75,7 @@ In this task, you will register resource providers necessary to deploy an Azure 
 
 1. Close the Cloud Shell pane.
 
-#### Task 2: Deploy an Azure Kubernetes Service cluster
+#### <span style="color:#5bb776">Task 2:</span> Deploy an Azure Kubernetes Service cluster
 
 In this task, you will deploy an Azure Kubernetes Services cluster by using the Azure portal.
 
@@ -88,9 +86,9 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Setting                      | Value                                                             |
     | ---------------------------- | ----------------------------------------------------------------- |
     | Subscription                 | the name of the Azure subscription you are using in this lab      |
-    | Resource group               | the name of a new resource group **az104-09c-rg1**                |
+    | Resource group               | the name of a new resource group **rg-cygate-lab**                |
     | Cluster preset configuration | **Dev/Test ($)**                                                  |
-    | Kubernetes cluster name      | **az104-9c-aks1**                                                 |
+    | Kubernetes cluster name      | **aks-cygate-lab-001**                                            |
     | Region                       | the name of a region where you can provision a Kubernetes cluster |
     | Availability zones           | **None** (uncheck all boxes)                                      |
     | Kubernetes version           | accept the default                                                |
@@ -132,15 +130,15 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
 
     >**Note**: Wait for the deployment to complete. This should take about 10 minutes.
 
-#### Task 3: Deploy pods into the Azure Kubernetes Service cluster
+#### <span style="color:#5bb776">Task 3:</span> Deploy pods into the Azure Kubernetes Service cluster
 
 In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
 1. On the deployment blade, click the **Go to resource** link.
 
-1. On the **az104-9c-aks1** Kubernetes service blade, in the **Settings** section, click **Node pools**.
+1. On the **aks-cygate-lab-001** Kubernetes service blade, in the **Settings** section, click **Node pools**.
 
-1. On the **az104-9c-aks1 - Node pools** blade, verify that the cluster consists of a single pool with one node.
+1. On the **aks-cygate-lab-001 - Node pools** blade, verify that the cluster consists of a single pool with one node.
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
@@ -149,9 +147,9 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 1. From the Cloud Shell pane, run the following to retrieve the credentials to access the AKS cluster:
 
     ```sh
-    RESOURCE_GROUP='az104-09c-rg1'
+    RESOURCE_GROUP='rg-cygate-lab'
 
-    AKS_CLUSTER='az104-9c-aks1'
+    AKS_CLUSTER='aks-cygate-lab-001'
 
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER
     ```
@@ -200,7 +198,7 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
 1. Open a browser window and navigate to the IP address you obtained in the previous step. Verify that the browser page displays the **Welcome to nginx!** message.
 
-#### Task 4: Scale containerized workloads in the Azure Kubernetes service cluster
+#### <span style="color:#5bb776">Task 4:</span> Scale containerized workloads in the Azure Kubernetes service cluster
 
 In this task, you will scale horizontally the number of pods and then number of cluster nodes.
 
@@ -221,9 +219,9 @@ In this task, you will scale horizontally the number of pods and then number of 
 1. From the **Cloud Shell** pane, run the following to scale out the cluster by increasing the number of nodes to 2:
 
     ```sh
-    RESOURCE_GROUP='az104-09c-rg1'
+    RESOURCE_GROUP='rg-cygate-lab'
 
-    AKS_CLUSTER='az104-9c-aks1'
+    AKS_CLUSTER='aks-cygate-lab-001'
 
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
     ```
