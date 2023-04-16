@@ -51,6 +51,34 @@ In this lab, you will:
 
 ## <span style="color:#8B2CDB">Instructions</span>
 
+Verify your subscription
+
+```
+az account show --output table
+```
+
+If you happends to be at the wrong subscription, find the one you want to use
+
+```
+az account list --output table
+```
+
+Move to the correct subscription 
+
+```
+# change the active subscription using the subscription name 
+az account set --subscription "My Demos"
+
+# change the active subscription using the subscription ID 
+az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+Verify that you are in the correct subscription 
+
+```
+az account show --output table
+```
+
 ### <span style="color:#5bb776">Exercise 1</span>
 
 #### <span style="color:#5bb776">Task 1:</span> Register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
