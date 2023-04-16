@@ -51,33 +51,6 @@ In this lab, you will:
 
 ## <span style="color:#8B2CDB">Instructions</span>
 
-Verify your subscription
-
-```
-az account show --output table
-```
-
-If you happends to be at the wrong subscription, find the one you want to use
-
-```
-az account list --output table
-```
-
-Move to the correct subscription 
-
-```
-# change the active subscription using the subscription name 
-az account set --subscription "My Demos"
-
-# change the active subscription using the subscription ID 
-az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-```
-
-Verify that you are in the correct subscription 
-
-```
-az account show --output table
-```
 
 ### <span style="color:#5bb776">Exercise 1</span>
 
@@ -89,9 +62,41 @@ In this task, you will register resource providers necessary to deploy an Azure 
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**.
+1. If prompted to select either **Bash** or **PowerShell**, select **Bash**.
 
     >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**.
+
+
+2. Verify your subscription
+   
+    ```sh
+    az account show --output table
+    ```
+
+    If you happends to be at the wrong subscription, find the one you want to use
+
+    ```sh
+    az account list --output table
+    ```
+
+    Move to the correct subscription 
+
+    ```sh
+    # change the active subscription using the subscription name 
+    az account set --subscription "My Demos"
+
+    # change the active subscription using the subscription ID 
+    az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ```
+
+    Verify that you are in the correct subscription 
+
+    ```sh
+    az account show --output table
+    ```
+
+
+1. Switch the Azure Cloud Shell to **PowerShell** (black background). 
 
 1. From the Cloud Shell pane, run the following to register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
 
