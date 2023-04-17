@@ -279,7 +279,7 @@ In this task, you will scale horizontally the number of pods and then number of 
     ```sh
     # Check that it is one node
     kubectl get nodes
-    #Then scale to two nodes
+    # Then scale to two nodes
 
     RESOURCE_GROUP='rg-cygate-lab'
     AKS_CLUSTER='aks-cygate-lab-001'
