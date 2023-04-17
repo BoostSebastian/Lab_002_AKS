@@ -94,16 +94,14 @@ In this task, you will register resource providers necessary to deploy an Azure 
     ```sh
     az account show --output table
     ```
-
-
-1. Switch the Azure Cloud Shell to **PowerShell** (black background). 
+ 
 
 1. From the Cloud Shell pane, run the following to register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
 
-   ```powershell
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Kubernetes
-
-   Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
+   ```sh
+   az provider register --namespace "Microsoft.Kubernetes" --wait
+   
+   az provider register --namespace "Microsoft.KubernetesConfiguration" --wait
    ```
 
 1. Close the Cloud Shell pane.
@@ -113,6 +111,8 @@ In this task, you will register resource providers necessary to deploy an Azure 
 In this task, you will deploy an Azure Kubernetes Services cluster by using the Azure portal.
 
 1. In the Azure portal, search for locate **Kubernetes services** and then, on the **Kubernetes services** blade, click **+ Create**, and then click **+ Create a Kubernetes cluster**.
+
+<img src="./images/AKS.png" alt="AKS">
 
 1. On the **Basics** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
 
@@ -124,11 +124,15 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Kubernetes cluster name      | **aks-cygate-lab-001**                                            |
     | Region                       | the name of a region where you can provision a Kubernetes cluster |
     | Availability zones           | **None** (uncheck all boxes)                                      |
+    | AKS pricing tier             | accept the default                                                |
     | Kubernetes version           | accept the default                                                |
-    | API server availability      | accept the default                                                |
+    | Automatic upgrade            | accept the default                                                |
     | Node size                    | accept the default                                                |
     | Scale method                 | **Manual**                                                        |
     | Node count                   | **1**                                                             |
+
+
+1. Click **Next: Node Pools >** and, on the **Node Pools** tab of the **Create Kubernetes cluster** blade, leave settings with their default values:
 
     <br />
     <img src="./images/k8s_settings.png" alt="settings" height="700"> 
@@ -136,6 +140,7 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     <br />
 
 2. Click **Next: Node Pools >** and, on the **Node Pools** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
+
 
     | Setting              | Value                  |
     | -------------------- | ---------------------- |
@@ -148,7 +153,9 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Resource identity     | **System-assigned managed identity**    |
     | Authentication method | **Local accounts with Kubernetes RBAC** |
 
-4. Click **Next: Networking >** and, on the **Networking** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
+
+1. Click **Next: Networking >** and, on the **Networking** tab of the **Create Kubernetes cluster** blade, leave settings with their default values:
+
 
     | Setting               | Value                                     |
     | --------------------- | ----------------------------------------- |
@@ -157,12 +164,14 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
 
 5. Click **Next: Integrations >**, on the **Integrations** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
 
+
     | Setting                        | Value        |
     | ------------------------------ | ------------ |
     | Container Registry             | **None**     |
     | Enable recommended alert rules | **Uncheck**  |
     | Enable Container Logs          | **Disabled** |
     | Azure Policy                   | **Disabled** |
+
     
 6.  Click **Review + create** (at the top, you can skip advanced & tags), ensure that the validation passed and click **Create**.
 
@@ -180,9 +189,10 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
 3. On the **aks-cygate-lab-001 - Node pools** blade, verify that the cluster consists of a single pool with one node.
 
-    <img src="./images/nodepools.png" alt="noepools" height="200">
+  <img src="./images/NodePools.png" alt="NodePools">
 
-4. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
+1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
+
 
 5. Switch the **Azure Cloud Shell** to **Bash** (black background).
 
@@ -243,6 +253,8 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
     
     <img src="./images/working%20ngnix.png" alt="noepools" height="300">
 
+<img src="./images/nginx.png" alt="nginx">
+
 #### <span style="color:#5bb776">Task 4:</span> Scale containerized workloads in the Azure Kubernetes service cluster
 
 In this task, you will scale horizontally the number of pods and then number of cluster nodes.
@@ -287,7 +299,7 @@ In this task, you will scale horizontally the number of pods and then number of 
 
     > **Note**: Review the output of the command and verify that the number of nodes increased to 2.
 
-1. From the **Cloud Shell** pane, run the following to scale the deployment:
+1. From the **Cloud Shell** pane, and run the following to scale the deployment by increasing of the number of pods to 10:
 
     ```sh
     kubectl scale --replicas=10 deployment/nginx-deployment
@@ -343,4 +355,5 @@ In this lab, you have:
 
 + Deployed an Azure Kubernetes Service cluster
 + Deployed pods into the Azure Kubernetes Service cluster
++ Made the service available from Internet
 + Scaled containerized workloads in the Azure Kubernetes service cluster
