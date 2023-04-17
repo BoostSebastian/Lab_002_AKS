@@ -190,7 +190,6 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
     ```sh
     RESOURCE_GROUP='rg-cygate-lab'
-
     AKS_CLUSTER='aks-cygate-lab-001'
 
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER
@@ -251,6 +250,9 @@ In this task, you will scale horizontally the number of pods and then number of 
 1. From the **Cloud Shell** pane, and run the following to scale the deployment by increasing of the number of pods to 2:
 
     ```sh
+    # Check that it is one pod
+    kubectl get pods
+    #Then scale to two pods
     kubectl scale --replicas=2 deployment/nginx-deployment
     ```
 
@@ -265,8 +267,11 @@ In this task, you will scale horizontally the number of pods and then number of 
 1. From the **Cloud Shell** pane, run the following to scale out the cluster by increasing the number of nodes to 2:
 
     ```sh
+    # Check that it is one node
+    kubectl get nodes
+    #Then scale to two nodes
+    
     RESOURCE_GROUP='rg-cygate-lab'
-
     AKS_CLUSTER='aks-cygate-lab-001'
 
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
