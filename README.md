@@ -112,7 +112,7 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
 
 1. In the Azure portal, search for locate **Kubernetes services** and then, on the **Kubernetes services** blade, click **+ Create**, and then click **+ Create a Kubernetes cluster**.
 
-<img src="./images/AKS.png" alt="AKS">
+    <img src="./images/AKS.png" alt="AKS">
 
 1. On the **Basics** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
 
@@ -189,7 +189,7 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
 3. On the **aks-cygate-lab-001 - Node pools** blade, verify that the cluster consists of a single pool with one node.
 
-  <img src="./images/NodePools.png" alt="NodePools">
+    <img src="./images/NodePools.png" alt="NodePools">
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
@@ -252,8 +252,6 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 15. Open a browser window and navigate to the IP address you obtained in the previous step. Verify that the browser page displays the **Welcome to nginx!** message.
     
     <img src="./images/working%20ngnix.png" alt="noepools" height="300">
-
-<img src="./images/nginx.png" alt="nginx">
 
 #### <span style="color:#5bb776">Task 4:</span> Scale containerized workloads in the Azure Kubernetes service cluster
 
