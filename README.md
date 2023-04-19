@@ -442,7 +442,7 @@ In this task, you will scale horizontally the number of pods and then number of 
 1. Deploy the application
 
     ```
-    kubectl apply -f azure-vote.yaml
+    kubectl apply -f azure-vote-all-in-one-redis.yaml
     ```
 
 1. You should get the following:
