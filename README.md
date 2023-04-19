@@ -44,7 +44,6 @@ In this lab, you will:
 ## <span style="color:#8B2CDB">Architecture diagram</span>
 
 <img src="./images/lab002aks.png" alt="Logo" height="500">
-![](https://github.com/Lugn/Lab_002_AKS/tree/main/images/AKS10.gif)
 
 <br />
 <br />
