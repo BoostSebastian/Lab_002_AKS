@@ -38,13 +38,13 @@ In this lab, you will:
 + Task 2: Deploy an Azure Kubernetes Service cluster
 + Task 3: Deploy pods into the Azure Kubernetes Service cluster
 + Task 4: Scale containerized workloads in the Azure Kubernetes service cluster
++ Task 5: Deploy an application with a ***YAML*** file
 
 <br />
 
 ## <span style="color:#8B2CDB">Architecture diagram</span>
 
-<img src="./images/lab002aks.png" alt="Logo" height="500">
-
+<img src="./images/AKS10.gif" alt="Logo" height="500">
 
 <br />
 <br />
@@ -55,6 +55,7 @@ In this lab, you will:
 ### <span style="color:#5bb776">Exercise 1</span>
 
 #### <span style="color:#5bb776">Task 1:</span> Register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
+*(Not needed if use precreated account from Telia Cygate)*
 
 In this task, you will register resource providers necessary to deploy an Azure Kubernetes Services cluster.
 
@@ -119,9 +120,9 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Setting                      | Value                                                             |
     | ---------------------------- | ----------------------------------------------------------------- |
     | Subscription                 | the name of the Azure subscription you are using in this lab      |
-    | Resource group               | the name of a new resource group **rg-cygate-lab**                |
+    | Resource group               | the name of a new resource group **rg-cygate-lab-0xx**            |
     | Cluster preset configuration | **Dev/Test**                                                      |
-    | Kubernetes cluster name      | **aks-cygate-lab-001**                                            |
+    | Kubernetes cluster name      | **aks-cygate-lab-0xx**                                            |
     | Region                       | the name of a region where you can provision a Kubernetes cluster |
     | Availability zones           | **None** (uncheck all boxes)                                      |
     | AKS pricing tier             | accept the default                                                |
@@ -175,7 +176,7 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     
 6.  Click **Review + create** (at the top, you can skip advanced & tags), ensure that the validation passed and click **Create**.
 
-    >**Note**: In production scenarios, you would want to enable monitoring. Monitoring is disabled in this case since it is not covered in the lab.
+    >**Note**: Notify the instructor that you are deploying the AKS.
 
     >**Note**: Wait for the deployment to complete. This should take about 10 minutes.
 
@@ -185,9 +186,9 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
 1. On the deployment blade, click the **Go to resource** link.
 
-2. On the **aks-cygate-lab-001** Kubernetes service blade, in the **Settings** section, click **Node pools**.
+2. On the **aks-cygate-lab-0xx** Kubernetes service blade, in the **Settings** section, click **Node pools**.
 
-3. On the **aks-cygate-lab-001 - Node pools** blade, verify that the cluster consists of a single pool with one node.
+3. On the **aks-cygate-lab-0xx - Node pools** blade, verify that the cluster consists of a single pool with one node.
 
     <img src="./images/NodePools.png" alt="NodePools">
 
@@ -199,8 +200,8 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 6. From the Cloud Shell pane, run the following to retrieve the credentials to access the AKS cluster:
 
     ```sh
-    RESOURCE_GROUP='rg-cygate-lab'
-    AKS_CLUSTER='aks-cygate-lab-001'
+    RESOURCE_GROUP='rg-cygate-lab-0xx'
+    AKS_CLUSTER='aks-cygate-lab-0xx'
 
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER
     ```
@@ -281,8 +282,8 @@ In this task, you will scale horizontally the number of pods and then number of 
     kubectl get nodes
     # Then scale to two nodes
 
-    RESOURCE_GROUP='rg-cygate-lab'
-    AKS_CLUSTER='aks-cygate-lab-001'
+    RESOURCE_GROUP='rg-cygate-lab-0xx'
+    AKS_CLUSTER='aks-cygate-lab-0xx'
 
     az aks scale --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --node-count 2
     ```
@@ -325,7 +326,8 @@ In this task, you will scale horizontally the number of pods and then number of 
     kubectl delete deployment nginx-deployment
     ```
 
-1. Now we re going to try do deply an application with a ***YAML*** file. Let's start by creating a file.
+#### <span style="color:#5bb776">Task 5:</span> Now we re going to try do deploy an application with a ***YAML*** file
+1. Let's start by creating a file. From the **Cloud Shell** pane, run the following
 
     ```sh
     code .
