@@ -325,7 +325,13 @@ In this task, you will scale horizontally the number of pods and then number of 
     kubectl delete deployment nginx-deployment
     ```
 
-1. Close the **Cloud Shell** pane.
+1. Now we re going to try do deply an application with a ***YAML*** file. Let's start by creating a file.
+
+    ```sh
+    code
+    ```
+
+2. Close the **Cloud Shell** pane.
 
 #### Clean up resources
 
