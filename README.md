@@ -320,11 +320,18 @@ In this task, you will scale horizontally the number of pods and then number of 
 
     > **Note**: Review the output of the command and verify that the pods are distributed across both nodes.
 
+1. From the **Cloud Shell** pane, run the following to delete the service:
+
+    ```sh
+    kubectl delete service nginx-deployment
+    ```
+
 1. From the **Cloud Shell** pane, run the following to delete the deployment:
 
     ```sh
     kubectl delete deployment nginx-deployment
     ```
+
 
 #### <span style="color:#5bb776">Task 5:</span> Now we re going to try do deploy an application with a ***YAML*** file
 1. Let's start by creating a file. From the **Cloud Shell** pane, run the following
@@ -428,7 +435,7 @@ In this task, you will scale horizontally the number of pods and then number of 
 1. Name the file:
 
     ```
-    azure-vote-all-in-one-redis.yml
+    azure-vote-all-in-one-redis.yaml
     ```
 
 1. You can run the commands to show the ***Pods*** are gone and the ***Nodes*** are still there
