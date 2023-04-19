@@ -44,7 +44,7 @@ In this lab, you will:
 ## <span style="color:#8B2CDB">Architecture diagram</span>
 
 <img src="./images/lab002aks.png" alt="Logo" height="500">
-
+![](https://github.com/Lugn/Lab_002_AKS/tree/main/images/AKS10.gif)
 
 <br />
 <br />
@@ -55,6 +55,7 @@ In this lab, you will:
 ### <span style="color:#5bb776">Exercise 1</span>
 
 #### <span style="color:#5bb776">Task 1:</span> Register the Microsoft.Kubernetes and Microsoft.KubernetesConfiguration resource providers.
+(Not needed if use precreated account from Telia Cygate)
 
 In this task, you will register resource providers necessary to deploy an Azure Kubernetes Services cluster.
 
