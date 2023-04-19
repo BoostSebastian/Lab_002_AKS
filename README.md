@@ -38,6 +38,7 @@ In this lab, you will:
 + Task 2: Deploy an Azure Kubernetes Service cluster
 + Task 3: Deploy pods into the Azure Kubernetes Service cluster
 + Task 4: Scale containerized workloads in the Azure Kubernetes service cluster
++ Task 5: Deploy an application with a ***YAML*** file
 
 <br />
 
@@ -325,7 +326,7 @@ In this task, you will scale horizontally the number of pods and then number of 
     kubectl delete deployment nginx-deployment
     ```
 
-#### <span style="color:#5bb776">Task 5:</span> Now we re going to try do deply an application with a ***YAML*** file
+#### <span style="color:#5bb776">Task 5:</span> Now we re going to try do deploy an application with a ***YAML*** file
 1. Let's start by creating a file. From the **Cloud Shell** pane, run the following
 
     ```sh
