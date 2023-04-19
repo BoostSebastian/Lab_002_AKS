@@ -43,7 +43,7 @@ In this lab, you will:
 
 ## <span style="color:#8B2CDB">Architecture diagram</span>
 
-<img src="./images/lab002aks.png" alt="Logo" height="500">
+<img src="./images/AKS10.gif" alt="Logo" height="500">
 
 <br />
 <br />
