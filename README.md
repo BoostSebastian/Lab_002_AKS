@@ -340,7 +340,7 @@ In this task, you will scale horizontally the number of pods and then number of 
     curl -O https://raw.githubusercontent.com/BoostSebastian/Lab_002_AKS/main/azure-vote-all-in-one-redis.yaml
     ```
 
-1. Examin the content of the file
+1. Examine the content of the file
 
     ```yaml
     apiVersion: apps/v1
