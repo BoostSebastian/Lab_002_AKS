@@ -334,13 +334,13 @@ In this task, you will scale horizontally the number of pods and then number of 
 
 
 #### <span style="color:#5bb776">Task 5:</span> Now we re going to try do deploy an application with a ***YAML*** file
-1. Let's start by creating a file. From the **Cloud Shell** pane, run the following
+1. Let's start by download a file. From the **Cloud Shell** pane, run the following
 
     ```sh
-    code .
+    curl -O https://raw.githubusercontent.com/BoostSebastian/Lab_002_AKS/main/azure-vote-all-in-one-redis.yaml
     ```
 
-1. Copy and Paste the following in the newly created document
+1. Examin the content of the file
 
     ```yaml
     apiVersion: apps/v1
@@ -428,14 +428,6 @@ In this task, you will scale horizontally the number of pods and then number of 
     - port: 80
     selector:
         app: azure-vote-front
-    ```
-
-1. Save the file by do a save command: Ctrl-S
-
-1. Name the file:
-
-    ```
-    azure-vote-all-in-one-redis.yaml
     ```
 
 1. You can run the commands to show the ***Pods*** are gone and the ***Nodes*** are still there
